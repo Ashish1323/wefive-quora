@@ -1,0 +1,36 @@
+<h1> This is home page </h1>
+<% if (!currentUser) { %>
+    <li><a href="/signin">Login</a></li>
+    <li><a href="/signup">Sign Up</a></li>
+  <% } else { %>
+    <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+    <li><a href="/logout">Logout</a></li>
+  <% } %>
+
+<form action="/" method="POST">
+  <input type="text" placeholder="write your questions" name="ques">
+  <button>Submit</button>
+</form>
+   <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+            <% question.forEach(function(campground){ %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                                        
+                            <h4>   <%= campground.question %>  </h4><br>
+                            <p> Question By <%= campground.author.username %></p>
+                            
+                            <a href="/question/<%= campground._id%>" class="btn btn-primary">Answered by <%= campground.answer.length%></a>
+                        </div>
+                        <p>
+                            <a href="/question/<%= campground._id%>" class="btn btn-primary">More Info</a>
+                        </p>
+
+                        <form action="/<%= campground._id %>/answer" method="POST">
+                            <input type="text" name="answer" placeholder="WRITE YOUR ANSWER">
+                            <button>Submit</button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+   </div>
