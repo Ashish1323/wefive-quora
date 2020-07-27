@@ -1,0 +1,21 @@
+body {
+  background-image:url(../../assets/img/login_img.png);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.container {
+  width:100%;
+}
+
+.jumbotron {
+  padding-left:25%;
+}
+
+.container {
+  /*padding:25%;*/
+  padding-top:20%;
+  padding-left:25%;
+  padding-right:25%;
+}
+

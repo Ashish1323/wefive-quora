@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.split {
+  height: 90%;
+ 
+  position: fixed;
+  z-index: 1;
+  
+  overflow-x: hidden;
+  padding-top: 20px;
+  
+  padding-top: 20px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+}
+.split::-webkit-scrollbar {
+    display: none;
+}
+
+.left {
+  left: 0;
+  width :25%;
+  height: 90%;
+  /*background-image: url('https://images.unsplash.com/photo-1544208757-ddbaebce244e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
+  background-repeat: no-repeat;
+  background-position: center;*/
+}
+.right {
+  right: 0;
+  width:25%;
+  height: 90%;
+  background-image:url('https://images.unsplash.com/photo-1544208757-ddbaebce244e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.middle {
+  left: 25%;
+  right: 25%;
+  width:50%;
+  height: 90%;
+  background:white;
+}
+.centered {
+  margin:10px 0px;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  height: 80%;
+} 
+.askquestion{
+  margin:0px 20px 30px 20px;
+}
+
