@@ -31,12 +31,7 @@ const { MongoClient } = require("mongodb");
 
 // run().catch(console.dir);
 
-mongoose.connect("mongodb+srv://ashish:ohyeah@cluster0.plske.mongodb.net/Quora?retryWrites=true&w=majority",
-{ useNewUrlParser: true, useCreateIndex:true}).then(()=>{
-    console.log("DB Connected")
-}).catch(err => {
-    console.log(err);
-})
+ mongoose.connect("mongodb://localhost:27017/Quora",{ useNewUrlParser: true } );
 
 
 app.use(express.static(__dirname + "/public"));
@@ -286,6 +281,6 @@ Question.find({}, function(err, question){
 
 
 
-    app.listen(process.env.PORT,process.env.IP,function(){
-        console.log("Example app listening running")
-    })
+    app.listen(port,function(){
+        console.log(`Example app listening at http://localhost:${port}`)
+    }); 
