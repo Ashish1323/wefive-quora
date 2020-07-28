@@ -8,6 +8,36 @@ var express     = require("express"),
 const { urlencoded } = require("body-parser");
 var app=express();
 
+const { MongoClient } = require("mongodb");
+ 
+// Replace the following with your Atlas connection string                                                                                                                                        
+
+// const url = "mongodb+srv://<wefive2>:<lodalussan>@cluster0.plske.mongodb.net/<Quora>?retryWrites=true&w=majority;
+
+// const client = new MongoClient(url);
+
+// async function run() {
+//     try {
+//         await client.connect();
+//         console.log("Connected correctly to server");
+
+//     } catch (err) {
+//         console.log(err.stack);
+//     }
+//     finally {
+//         await client.close();
+//     }
+// }
+
+// run().catch(console.dir);
+
+mongoose.connect("mongodb+srv://ashish:ohyeah@cluster0.plske.mongodb.net/Quora?retryWrites=true&w=majority",
+{ useNewUrlParser: true, useCreateIndex:true}).then(()=>{
+    console.log("DB Connected")
+}).catch(err => {
+    console.log(err);
+})
+
 
 app.use(express.static(__dirname + "/public"));
 
@@ -15,7 +45,7 @@ app.use(bodyParser.urlencoded({extended:true}));
     const port=8000;
     
     app.set("view engine", "ejs");
-    mongoose.connect("mongodb://localhost:27017/Quora",{ useNewUrlParser: true } );
+    // mongoose.connect("mongodb+srv://<wefive2>:<lodalussan>@cluster0.plske.mongodb.net/<Quora>?retryWrites=true&w=majority",{ useNewUrlParser: true } );
 
     // Modelss
     // Question Model
