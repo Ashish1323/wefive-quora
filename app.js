@@ -286,6 +286,6 @@ Question.find({}, function(err, question){
 
 
 
-    app.listen(port,function(){
-        console.log(`Example app listening at http://localhost:${port}`)
-    }); 
+    app.listen(process.env.PORT,process.env.IP,function(){
+        console.log("Example app listening running")
+    })
