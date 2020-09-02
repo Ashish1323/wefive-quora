@@ -21,6 +21,7 @@ const { urlencoded } = require("body-parser");
 const question = require("./models/question");
 // configure dotenv
 require('dotenv').config();
+app.use(methodOverride('_method'));
 app.use(cookieParser('secret'));
 //require moment
 app.locals.moment = require('moment');
@@ -92,6 +93,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     next();
 })
 
@@ -826,10 +829,10 @@ else{
       
       app.get('/reset/:token', function(req, res) {
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-          if (!user) {
-            req.flash('error', 'Password reset token is invalid or has expired.');
-            return res.redirect('/forgot');
-          }
+        //   if (!user) {
+        //     req.flash('error', 'Password reset token is invalid or has expired.');
+        //     return res.redirect('/forgot');
+        //   }
           res.render('reset', {token: req.params.token});
         });
       });

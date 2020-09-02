@@ -99,7 +99,7 @@
    
     <a class="btn mx-2"  href="/signup">Sign up</a>
       <% } else { %> 
-   <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:white; font-family: 'Sora';text-decoration: none;text-transform: capitalize;"><img src="/uploads/<%= currentUser.image %>" style="width:40px;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
+   <a class="form mr-3" href="/<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:white; font-family: 'Sora';text-decoration: none;text-transform: capitalize;"><img src="/uploads/<%= currentUser.image %>" style="width:40px;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
     <a class="btn" style="color:white;text-decoration: none;" href="/logout">Logout</a></button>
       <% } %>
   </div>
@@ -253,6 +253,26 @@
  
       <!-- ------------------------RIGHT CONTENT END-------------------------- -->
    </div>
+
+   
+ <script type="text/javascript">
+  var a;
+  var s;
+function show_hide(s){
+
+
+if (a==0) {
+  document.getElementById("textarea"+s).style.display="none";
+  document.getElementById("answerbutton"+s).style.display="none";
+  return a=1;
+}
+else{
+  document.getElementById("textarea"+s).style.display="inline";
+  document.getElementById("answerbutton"+s).style.display="inline";
+  return a=0;
+}
+}
+</script>
 
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
