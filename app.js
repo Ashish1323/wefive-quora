@@ -5,11 +5,13 @@ var express     = require("express"),
     LocalStatergy   = require("passport-local"),
     User        = require("./models/user");
     Answer= require("./models/answer");
+    methodOverride = require("method-override"),
     Question = require("./models/question");
     var flash = require('connect-flash');
     var nodemailer = require("nodemailer");
 var crypto = require("crypto");
-cookieParser = require("cookie-parser")
+var cookieParser = require("cookie-parser");
+var session = require("express-session")
 var async = require('async');
 
 var app=express();
@@ -797,14 +799,14 @@ else{
             var smtpTransport = nodemailer.createTransport({
               service: 'Gmail', 
               auth: {
-                user: 'ashishagnihotri2k@gmail.com',
-                pass: 'Mom.2300'
+                user: 'wefivehelper@gmail.com',
+                pass: 'wefive12345'
               }
             });
             var mailOptions = {
               to: user.email,
-              from: 'ashishagnihotri2k@gmail.com',
-              subject: 'Node.js Password Reset',
+              from: 'wefivehelper@gmail.com',
+              subject: 'We Five Password Reset',
               text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                 'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
                 'http://' + req.headers.host + '/reset/' + token + '\n\n' +
@@ -824,10 +826,10 @@ else{
       
       app.get('/reset/:token', function(req, res) {
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-        //   if (!user) {
-        //     req.flash('error', 'Password reset token is invalid or has expired.');
-        //     return res.redirect('/forgot');
-        //   }
+          if (!user) {
+            req.flash('error', 'Password reset token is invalid or has expired.');
+            return res.redirect('/forgot');
+          }
           res.render('reset', {token: req.params.token});
         });
       });
@@ -861,14 +863,14 @@ else{
             var smtpTransport = nodemailer.createTransport({
               service: 'Gmail', 
               auth: {
-                user: 'ashishagnihtori2k@gmail.com',
-                pass: 'Mom.2300'
+                user: 'wefivehelper@gmail.com',
+                pass: 'wefive12345'
               }
             });
             var mailOptions = {
               to: user.email,
-              from: 'learntocodeinfo@mail.com',
-              subject: 'Your password has been changed',
+              from: 'wefivehelper@gmail.com',
+              subject: 'Your We Five password has been changed',
               text: 'Hello,\n\n' +
                 'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
             };
