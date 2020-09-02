@@ -1,67 +1,111 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WeFive</title>
-    <link rel="icon" href= "img/titlelogo.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-     <script src="https://cdn.tiny.cloud/1/76e8i3zs3ajub8u8sv40gyfk9wuv3sm09w93b442e794fgvv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script type="text/javascript">
-    tinymce.init({
-      selector: '.myeditablediv',
-      inline: true,
-      menubar: false
-    });
-    </script>
-  </head>
-    <body>
-      <div style="height: 20%">
-    <nav class="navbar navbar-expand-xl navbar-light" style="background:#f0fbff">
-    <img class="navbar-brand" src="/img/logo_login.png" style="width:100px;">
+<head>
+	<title>WeFive</title>
+
+  <link rel="icon" href= "img/titlelogo.png" type="image/x-icon"> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdn.tiny.cloud/1/vgqocdqqvabj71rwopy0pfg6vp7ldb0ameqmftybdin1k35i/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script type="text/javascript">
+  tinymce.init({
+    selector: '.myeditablediv',
+    inline: true,
+    menubar: false
+  });
+	</script>
+
+	<style type="text/css">
+		body{
+			font-family: 'sora';
+		}
+		.askquestion{
+			margin:0px 20px 30px 20px;
+		}
+		.btn{
+			color: white;
+			font-family: 'Sora', sans-serif; font-weight: 400;
+		}
+		.nav-item{
+			color: white;
+		}
+
+		li{
+			font-family: 'Sora', sans-serif; font-weight: 500;
+		}
+		.cat_anchor{
+			color: #154854;;
+			text-decoration: none;
+			font-size: 0.8rem;
+			margin-left: 10%;
+		}
+
+	</style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+	<!-- -------------------------NAVBAR--------------------------- -->
+	<nav class="navbar navbar-expand-xl navbar-dark" id="mainNav" style="background:#154854;">
+    <div class="container">
+    <img class="navbar-brand" src="/img/login_logo_light.png" style="width:90px;padding:0px 0px;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-          <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item active ml-2">
+          <a class="nav-link" href="/">Home</a>
         </li>
-  
-         <form class="form-inline my-2 my-lg-0">
-            <i class="fas fa-search mr-3"></i> <input class="form-control mr-sm-2" style="width:500px;border-radius:80px;" type="search" placeholder="Search to become Genius ......" aria-label="Search">
-        </form>
-  <!--       <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-          <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-address-card"></i> About</a>
+        <li class="nav-item active mx-1">
+          <a class="nav-link" href="/about"></i> About</a>
         </li>
-        <li class="nav-item active px-3 pr-5" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-          <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-images"></i> Gallery</a>
+        <li class="nav-item active ml-1 mr-2">
+          <a class="nav-link" href="/front"></i> Specs</a>
         </li>
-    <form class="form-inline">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled style="background:white;">
-      </div>
-    </form> -->
+        <li class="d-lg-none">
+        	<div class="dropdown">
+  <button class="btn dropdown-toggle" style=" background: #154854" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Category
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/category/Sports">General Knowledge</a>
+    <a class="dropdown-item" href="/category/Education">Education</a>
+    <a class="dropdown-item" href="/category/Entertainment">Entertainment</a>
+  </div>
+</div>
+        </li>
+        
+        <p>
+         <form action="/" method="GET" class="form-inline">
+           <div class="form-group">
+             <i class="fas fa-search d-none d-md-block" style="color: white;"></i><input type="text" name="search" style="border-radius: 50px; margin-left:10px;width:300px;" placeholder="Search..." class="form-control">
+           </div>
+         </form>
+       </p>
       </ul>
         <% if (!currentUser) { %>
-      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-in-alt"></i> <a  style="color:red; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
+      <a class="btn mx-2" href="/signin">Sign in</a>
      
-      <button type="button" class="btn btn-light mx-2"><i class="fas fa-user-plus"></i> <a style="color:red;border:none;text-decoration: none;" href="/signup">SignUp</a></button>
+      <a class="btn mx-2"  href="/signup">Sign up</a>
         <% } else { %> 
-     <a class="form mr-3" href="#" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none; align-items: right; text-decoration: none; color: red; text-align:right;text-transform: capitalize;">Signed In As <%=currentUser.username %></a>
-      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-out-alt"></i> <a style="color:red;border:none; text-decoration: none;" href="/logout">Logout</a></button>
+     <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:white; font-family: 'Sora';text-decoration: none;text-transform: capitalize;"><img src="/img/4.jpg" style="width:40px;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
+      <a class="btn" style="color:white;text-decoration: none;" href="/logout">Logout</a></button>
         <% } %>
     </div>
-  </nav>
   </div>
+  </nav>
 
-  
+<!-- -------------------------NAVBAR END--------------------------- -->
 
-    <form action="/edit/answer/<%= answer._id %>"method="post" id="textarea">
+<div class="row pt-2">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<form action="/edit/answer/<%= answer._id %>"method="post" id="textarea" class="p-2">
         
                   <textarea name="answer" ><%- answer.answer %>
         
@@ -70,8 +114,14 @@
         
         </textarea>
       <br>
-        <BUTTON type="submit" id="answerbutton" class="btn btn-primary"style="margin-left:15px">Submit</BUTTON>
-        <script>
+        <BUTTON type="submit" id="answerbutton" class="btn btn-success">Submit</BUTTON>
+        
+      </form>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<script>
           tinymce.init({
             selector: 'textarea',
             plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
@@ -82,7 +132,9 @@
           });
           
         </script>
-      </form>
-    
+
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
