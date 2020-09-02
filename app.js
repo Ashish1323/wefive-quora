@@ -597,26 +597,55 @@ function isloggedin(req,res,next){
         });
     })
 
-    app.post("/answer/:id",function(req,res){
-        Answer.findByIdAndRemove(req.params.id, function(err){
-            if (err) {
-                res.redirect("/");
-            } else {
-                res.redirect("/");
-            }
-        });
+
+      app.post("/answer/:id",function(req,res){
+     
+        Answer.findById(req.params.id).populate("question").exec(function(err,answer){
+           if(err){
+               console.log(err);
+           }
+
+           else{
+               
+
+               Array.prototype.remove = function() {
+                var what, a = arguments, L = a.length, ax;
+                while (L && this.length) {
+                    what = a[--L];
+                    while ((ax = this.indexOf(what)) !== -1) {
+                        this.splice(ax, 1);
+                    }
+                }
+                return this;
+            };
+                        
+            answer.question[0].answers.remove(req.params.id);
+
+            console.log(answer.question[0].answers);
+        
+          
+            Question.findByIdAndUpdate({_id:answer.question[0]._id},{answers:answer.question[0].answers},function(err,res){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log(res);
+                }
+            });
+            Answer.findByIdAndRemove(req.params.id, function(err){
+                if (err) {
+                    res.redirect("/");
+                } else {
+                    res.redirect("/");
+                }
+            });
+           }
+
+        })
+        
     })
 
-    // app.get("/edit/answer/:id",function(req,res){
-        
-         
-    //             User.findById(req.params.id).populate("useranswers").exec(function(err,answer){
-    //                 res.render("editanswer",{answer:answer});
-    //                 console.log(answer.useranswers[0].answer);
-  
-    //             })        
-        
-    // })
+
 
     //edit
     app.get("/edit/answer/:id",function(req,res){
