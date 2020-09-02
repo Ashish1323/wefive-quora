@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 	<div class="col-md-12">
 		<form action="/reset/<%= token %>" method="POST">
 		  <legend>Reset Password</legend>
@@ -15,4 +15,41 @@
 		  </div>
 		</form>
 	</div>
-</div>
+</div> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeFive</title>
+     <link rel="icon" href= "/img/titlelogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Clean-1.css">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+    <div class="login-clean">
+		<form action="/reset/<%= token %>" method="POST">   
+		<h2 class="sr-only">Login Form</h2><img src="/assets/img/logo/logo_login.png">
+				<legend style="text-align:center;">Reset Password</legend>
+				<div class="form-group">
+				  <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
+				</div>
+				<div class="form-group">
+				  <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
+				</div>
+            <div class="form-group">
+            	<button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(238,206,125);font-size:20px;color:black;">Confirm!!</button>
+            </div>
+        </form>
+    </div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/logo.js"></script>
+</body>
+
+</html>
