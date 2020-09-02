@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WeFive</title>
+  <link rel="icon" href= "img/titlelogo.png" type="image/x-icon"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Dancing+Script:wght@500&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdn.tiny.cloud/1/vgqocdqqvabj71rwopy0pfg6vp7ldb0ameqmftybdin1k35i/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script type="text/javascript">
+  tinymce.init({
+    selector: '.myeditablediv',
+    inline: true,
+    menubar: false
+  });
+  </script>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.split {
+  height: 90%;
+ 
+  position: fixed;
+  z-index: 1;
+  
+  overflow-x: hidden;
+  padding-top: 20px;
+  
+  padding-top: 20px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+}
+.split::-webkit-scrollbar {
+    display: none;
+}
+
+.left {
+  left: 0;
+  width :25%;
+  height: 90%;
+  background:white;
+  /*background-image: url('https://images.unsplash.com/photo-1544208757-ddbaebce244e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
+  background-repeat: no-repeat;
+  background-position: center;*/
+}
+.right {
+  right: 0;
+  width:25%;
+  height: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+}
+.middle {
+  left: 25%;
+  right: 25%;
+  width:50%;
+  height: 95%;
+}
+.centered {
+  margin:10px 0px;
+  position:absolute;
+  top: 50%;
+  vertical-align: middle;
+  left: 50%;
+  align-content: center;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  height: 100%;
+} 
+.askquestion{
+  margin:0px 20px 30px 20px;
+}
+
+
+  </style>
+</head>
+<body style="background-image: url(https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80);background-repeat: no-repeat;background-size: cover; height: 700px;background-position: center;">
+    <nav class="navbar navbar-expand-xl navbar-light" style="background:#212326;opacity: 0.87">
+    <div class="container">
+    <img class="navbar-brand" src="img/titlelogo2.png" style="width:70px;padding:0px 0px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active ml-2" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/" style="color: white;"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item active mx-1" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/about" style="color: white;"><i class="far fa-address-card"></i> About</a>
+        </li>
+        <li class="nav-item active ml-1 mr-2" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/front" style="color: white;"><i class="fas fa-list-alt"></i> Specs</a>
+        </li>
+        <h3><%= noMatch %></h3>
+        <p>
+         <form action="/" method="GET" class="form-inline">
+           <div class="form-group">
+             <i class="fas fa-search" style="color: white;"></i><input type="text" name="search" style="border-radius: 50px; margin-left:10px;width:400px;" placeholder="Search..." class="form-control">
+           </div>
+         </form>
+       </p>
+      </ul>
+        <% if (!currentUser) { %>
+      <button type="button" class="btn btn-light mx-2" style="padding:3px;"><i class="fas fa-sign-in-alt"></i> <a  style="color:red; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
+     
+      <button type="button" class="btn btn-light mx-2" style="padding:3px;"><i class="fas fa-user-plus"></i> <a style="color:red;border:none;text-decoration: none;" href="/signup">SignUp</a></button>
+        <% } else { %> 
+     <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:black; font-family: 'Sora';text-decoration: none;text-transform: capitalize;color: white;"><img src="img/4.jpg" style="width:50px;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
+        <% } %>
+    </div>
+  </div>
+  </nav>
+
+<div class="split middle">
+   <div class="card askquestion">
+        <div class="card-header">
+          Questions for you 
+        </div>
+      <div class="card-body">
+         <blockquote class="blockquote mb-0">
+              <div class="input-group mb-3">
+              <div class="custom-file">
+<form action="/" method="POST" style="width:100%;" >
+      <input type="text" style="width:100%; border:none; text-transform: capitalize;" placeholder="  Ask what you want to know??" name="ques"><br>
+          <BUTTON type="submit" value="post" class="btn btn-success m-2">Submit</BUTTON>
+          <div class="btn-group dropright">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select
+              </button>
+              <div class="dropdown-menu" style="width:200px;">
+                     <input type="radio" id="General Knowledge" value="General Knowledge" name="A" required style="margin-left:10px;">
+                     <label for="General Knowledge">General Knowledge</label><br>
+                     <input type="radio" id="Education" value="Education" name="A" required style="margin-left:10px;">
+                     <label for="Education">Education</label><br>
+                     <input type="radio" id="Entertainment" value="Entertainment" name="A" required style="margin-left:10px;">
+                     <label for="Entertainment">Entertainment</label><br>
+                     <input type="radio" id="WebSeries & Movies" value="WebSeries & Movies" name="A" required style="margin-left:10px;">
+                     <label for="WebSeries & Movies">WebSeries & Movies</label><br>
+                      <input type="radio" id="Sports" value="Sports" name="A" required style="margin-left:10px;">
+                     <label for="Sports">Sports</label><br>
+                      <input type="radio" id="History of India" value="History of IndiaEntertainment" name="A" required style="margin-left:10px;">
+                     <label for="History of India">History of India</label><br>
+                      <input type="radio" id="Technology Tricks" value="Technology Tricks" name="A" required style="margin-left:10px;">
+                     <label for="Technology Tricks">Technology Tricks</label><br>
+                      <input type="radio" id="Glamour World" value="Glamour World" name="A" required style="margin-left:10px;">
+                     <label for="Glamour World">Glamour World</label><br>
+                      <input type="radio" id="Movie Review" value="Movie Review" name="A" required style="margin-left:10px;">
+                     <label for="Movie Review">Movie Review</label><br>
+              </div>
+          </div>
+</form>
+              </div>
+          </div>
+  <% if (!currentUser) { %>
+             <footer class="blockquote-footer"><cite title="Source Title"></cite></footer>
+<% } else { %>
+<footer class="blockquote-footer"><cite title="Source Title" style="text-transform: capitalize;">By <%=currentUser.username %></cite></footer>
+<% } %>
+         </blockquote>
+
+  
+
+      </div>
+   </div>
+
+<% var s="1" %>
+
+<% question.forEach(function(campground){ %>
+      <div class="card askquestion">
+        
+          <div class="card-body">
+            <div class="text-left">
+              <h5 class="card-title"><%= campground.question %></h5>
+              <cite title="Source Title" style="text-transform: capitalize;">Question By <%= campground.author.username %></cite>
+            </div>
+            
+            <hr>
+            <p class="card-text"  href="">
+               <a href="/question/<%= campground._id %>" style="text-decoration: none;color: red;">Answered BY <%= campground.answers.length %></a> 
+              </p>
+              <button href="#" class="btn btn-dark" id="<%= s %>" onclick="show_hide(this.id)">Write</button>
+            
+         
+          
+          <!-- <button href="/" class="btn btn-primary" id="textinput" onclick="show_hide()"class="btn btn-success m-2" style="width:100px; margin-bottom: auto; ">Write</button> -->
+          <form action="/<%=campground._id%>/answer" method="post" id="textarea<%= s %>" style="display: none">
+            <textarea name="answer">
+            
+            </textarea>
+            <script>
+              tinymce.init({
+                selector: 'textarea',
+                plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+              });
+            </script>
+            <BUTTON type="submit" id="answerbutton<%= s %>" class="btn btn-primary"style="display: none; margin-left:15px">Submit</BUTTON>
+          </form>
+        </div>
+      </div>
+      <% s++ %>
+      <% }) %>
+  <div class="copyright mb-5" style="text-align: center;"> 
+       <p></i> Made With <i class="fas fa-heart"></i> By WeFive For You!!</p> 
+    </div>
+</div>
+
+<script type="text/javascript">
+    var a;
+    var s;
+function show_hide(s){
+  
+
+  if (a==0) {
+    document.getElementById("textarea"+s).style.display="none";
+    document.getElementById("answerbutton"+s).style.display="none";
+    return a=1;
+  }
+  else{
+    document.getElementById("textarea"+s).style.display="inline";
+    document.getElementById("answerbutton"+s).style.display="inline";
+    return a=0;
+  }
+}
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

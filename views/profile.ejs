@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>username</title>
+	<link rel="icon" href= "/img/titlelogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<style type="text/css">
+  .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  
+}
+.profie_image{
+  width: 80%;
+}
+.profile_image:hover .overlay {
+  opacity: 1;
+}
+.jumbotron{
+    	  background: white;
+          font-weight: bold;
+          border-radius:50px;
+          border:2px solid black;
+      }
+</style>
+<script type="text/javascript">
+  var cw = $('.profile_image').width();
+$('.profile_image').css({
+    'height': cw + 'px'
+});
+</script>
+</head>
+<body>
+
+	 <!-- =================================NAVBAR======================================================== -->
+  <div style="height: 20%">
+    <nav class="navbar navbar-expand-xl navbar-light" style="background:#f0fbff">
+    <img class="navbar-brand" src="/img/logo_login.png" style="width:100px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+        </li>
+  
+         <form class="form-inline my-2 my-lg-0">
+            <i class="fas fa-search mr-3"></i> <input class="form-control mr-sm-2" style="width:500px;border-radius:80px;" type="search" placeholder="Search to become Genius ......" aria-label="Search" href="/search">
+        </form>
+ 
+      </ul>
+        
+      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-in-alt"></i> <a  style="color:red; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
+     
+      <button type="button" class="btn btn-light mx-2"><i class="fas fa-user-plus"></i> <a style="color:red;border:none;text-decoration: none;" href="/signup">Sign Up</a></button>
+        
+     <a class="form mr-3" href="#" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none; align-items: right; text-decoration: none; color: red; text-align:right;text-transform: capitalize;"> Signed in as</a>
+      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-out-alt"></i> <a style="color:red;border:none; text-decoration: none;" href="/logout">Logout</a></button>
+       
+    </div>
+  </nav>
+</div> 
+
+
+<!-- ===============================NAVBAR END================================== -->
+
+<div class="content">
+<!-- =================================LEFT CONTENT=================================== -->
+
+    <div class="split left" >
+      <div class="centered">
+        
+        <div class="profile_image">
+   
+
+          <img src="/uploads/<%= question.image %>"  id="blah" style="width:150px; border-radius:50%;">
+
+        </div>
+        <br>
+        <H4><%= question.username %></H4>
+
+          <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown" style="margin-top: 50px">
+  <button type="button" class="btn btn-secondary"  id="answers" onclick="show_hide(this.id)">Answers</button>
+  <button type="button" class="btn btn-secondary" id="questions" onclick="show_hide(this.id)">Questions</button>
+  <button type="button" class="btn btn-secondary" id="setting" onclick="show_hide(this.id)">Account Setting</button>
+  <button type="button" class="btn btn-secondary">Logout</button>
+  <!-- <div class="btn-group" role="group" >
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="#">Dropdown link</a>
+      <a class="dropdown-item" href="#">Dropdown link</a>
+    </div>
+  </div> -->
+</div>
+      
+
+
+   
+      </div>
+
+  </div>
+
+    
+<!-- ==================================LEFT CONTENT CLOSE============================= -->
+
+<!-- ==================================RIGHT CONTENT================================== -->
+      <div class="split" id="pageanswers" style="width: 75%;height:90%; background:white ; left: 25%;">
+          <div class="centered" style="width:60%;"> 
+          <H1>Answers</H1>
+          <form action="/<%= currentUser._id %>/upload" method="POST" enctype="multipart/form-data">
+            <input name="myImage" type="file"/> 
+            <input type="submit" value="Upload"/>
+          </form>
+          <div class="container">
+           <% if(results.length){ %>
+            <% results.forEach(function(newquestions){ %>
+      <div class="card" style="border-radius: 20px;margin-bottom:10px;">
+        <div class="card-header py-3" style="border-radius: 20px;">
+           <h5><%= newquestions.myCustomResult.question %></h5>
+        </div>
+        <div class="card-body p-4">
+         
+          <h5><%- newquestions.answer %> <br>
+
+            <a href="/edit/answer/<%= newquestions._id %>" > Edit </a>
+        <form action="/answer/<%= newquestions._id %>/?_method=DELETE" method="POST" onclick="ConfirmDelete()">
+            <button>Delete</button>
+            </form>
+          
+          </h5>
+        </div>
+      </div>
+ 
+     <% }) %>
+     <% }else{ %>
+      <div class="card" style="border-radius: 20px;margin-bottom:10px;">
+        <div class="card-header py-3" style="border-radius: 20px;">
+           <h5>No Questions</h5>
+        </div>
+        <div class="card-body p-4">
+         
+          <h5>No Answers</h5>
+        </div>
+      </div>
+      <% } %>
+      </div>
+</div>  
+          </div>
+      </div>
+
+       <div class="split" id="pagequestions" style="width: 75%;height:90%; background:white ; left: 25%; display: none">
+          <div class="centered" style="width:60%;"> 
+          <H1>Questions</H1>
+      
+          <div class="container">
+            <% if(question.userquestions.length){  %>
+            <% question.userquestions.forEach(function(newquestions){ %>
+      <div class="card" style="border-radius: 20px;margin-bottom:10px;">
+        <div class="card-header py-3" style="border-radius: 20px;">
+           <h5><%= newquestions.question %></h5>
+         
+        </div>
+        <div class="card-body p-4">
+         <a href="/question/<%= newquestions._id %>" style="text-decoration: none;color: red;">Answered BY <%= newquestions.answers.length %></a>
+         <form action="/question/<%= newquestions._id %>?_method=DELETE" method="POST" onclick="ConfirmDelete()">
+          <button>Delete</button>
+          </form>
+        </div>
+      </div>
+      <% }) %>
+        <% }else{ %>
+        <div class="card" style="border-radius: 20px;margin-bottom:10px;">
+          <div class="card-header py-3" style="border-radius: 20px;">
+             <h5>You Have Not Written Any Question </h5>
+          </div>
+        </div> 
+        <% } %> 
+      </div>
+</div>
+
+          </div>  
+      </div>
+
+       <div class="split" id="pagesetting" style="width: 75%;height:90%; background:white ; left: 25%; display: none">
+          <div class="centered" style="width:60%;"> 
+          <H1 style="margin-bottom: 15%;">User Details</H1>
+          <div class="container">
+		    <div class="jumbotron">
+		      <h3> <a class="form mr-3" href="#" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none; align-items: right; text-decoration: none; color: red; text-align:right;text-transform: capitalize;"><%= question.username %></a></h3>
+		      <h5> <a class="form mr-3 my-5" href="#" aria-label="Email" aria-describedby="basic-addon1" disabled style="border:none; align-items: right; text-decoration: none; color:black; text-align:right;"><i class="far fa-envelope"></i> Email: <%= question.email %></a></h5>
+		      <h5> <a class="form mr-3 my-5" href="#" aria-label="password" aria-describedby="basic-addon1" disabled style="border:none; align-items: right; text-decoration: none; color:black; text-align:right;"><i class="fas fa-lock"></i> Password: *********</a></h5>
+		      <hr class="my-4">
+		      <h5> <a class="form mr-3 my-4" href="#" aria-label="Changepassword" aria-describedby="basic-addon1" disabled style="border:none; align-items: right; text-decoration: underline; color:gray; text-align:right;">Change Your Password</a></h5>
+		    </div>
+  		</div>
+
+          </div>  
+      </div>
+
+
+<!-- ==================================RIGHT CONTENT END================================== -->
+</div>
+
+<script type="text/javascript">
+   function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+<script type="text/javascript">
+    // var a;
+    var s;
+function show_hide(s){
+  
+
+  // if (a==0) {
+  //   document.getElementById("page"+s).style.display="none";
+ 
+  //   return a=1;
+  // }
+  // else{
+  //   document.getElementById("page"+s).style.display="inline";
+    
+  //   return a=0;
+  // }
+
+
+  var a=document.getElementById("pageanswers");
+  var b=document.getElementById("pagequestions");
+  var c=document.getElementById("pagesetting");
+  var y = document.getElementById("page"+s);
+
+ if(s==="answers"){
+  // if(a.style.display==="none"){
+    a.style.display="inline";
+    b.style.display="none";
+    c.style.display="none";
+
+   }
+
+if(s==="questions"){
+  // if(a.style.display==="none"){
+    a.style.display="none";
+    b.style.display="inline";
+    c.style.display="none";
+   }
+
+  if(s==="setting"){
+  // if(a.style.display==="none"){
+    a.style.display="none";
+    b.style.display="none";
+    c.style.display="inline";
+   }
+//   else{
+//       a.style.display="none";
+//     b.style.display="none";
+//     c.style.display="none";
+//   }
+// }
+
+//   if (y.style.display === "none") {
+//     y.style.display = "inline";
+
+//   } else {
+//     y.style.display = "none";
+//   }
+// }
+
+}
+
+    function ConfirmDelete()
+{
+  var x = confirm("Are you sure you want to delete?");
+  if (x)
+      return true;
+  else
+    return false;
+}
+
+</script>
+</script>
+</body>
+</html>

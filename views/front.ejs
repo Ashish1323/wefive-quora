@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WeFive</title>
+  <link rel="icon" href= "img/titlelogo.png" type="image/x-icon"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Dancing+Script:wght@500&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   <script src="https://cdn.tiny.cloud/1/76e8i3zs3ajub8u8sv40gyfk9wuv3sm09w93b442e794fgvv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script type="text/javascript">
+  tinymce.init({
+    selector: '.myeditablediv',
+    inline: true,
+    menubar: false
+  });
+  </script>
+  </head>
+<body style="background-image: url(https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80);background-repeat: no-repeat;background-size: cover; height: 700px;background-position: center;">
+    <nav class="navbar navbar-expand-xl navbar-light" style="background:#212326;opacity: 0.87">
+    <div class="container">
+    <img class="navbar-brand" src="img/titlelogo2.png" style="width:70px;padding:0px 0px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active ml-2" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/" style="color: white;"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item active mx-1" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/about" style="color: white;"><i class="far fa-address-card"></i> About</a>
+        </li>
+        <li class="nav-item active ml-1 mr-2" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/category" style="color: white;"><i class="fas fa-list-alt"></i> Specs</a>
+        </li>
+        <h3><%= noMatch %></h3>
+        <p>
+         <form action="/" method="GET" class="form-inline">
+           <div class="form-group">
+             <i class="fas fa-search" style="color: white;"></i><input type="text" name="search" style="border-radius: 50px; margin-left:10px;width:400px;" placeholder="Search..." class="form-control">
+           </div>
+         </form>
+       </p>
+      </ul>
+        <% if (!currentUser) { %>
+      <button type="button" class="btn btn-light mx-2" style="padding:3px;"><i class="fas fa-sign-in-alt"></i> <a  style="color:red; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
+     
+      <button type="button" class="btn btn-light mx-2" style="padding:3px;"><i class="fas fa-user-plus"></i> <a style="color:red;border:none;text-decoration: none;" href="/signup">SignUp</a></button>
+        <% } else { %> 
+     <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:black; font-family: 'Sora';text-decoration: none;text-transform: capitalize;color: white;"><img src="img/4.jpg" style="width:50px;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
+        <% } %>
+    </div>
+  </div>
+  </nav>
+<script type="text/javascript">
+    var a;
+    var s;
+function show_hide(s){
+  
+
+  if (a==0) {
+    document.getElementById("textarea"+s).style.display="none";
+    document.getElementById("answerbutton"+s).style.display="none";
+    return a=1;
+  }
+  else{
+    document.getElementById("textarea"+s).style.display="inline";
+    document.getElementById("answerbutton"+s).style.display="inline";
+    return a=0;
+  }
+}
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

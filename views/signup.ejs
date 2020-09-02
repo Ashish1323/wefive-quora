@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeFive</title>
+    <link rel="icon" href= "img/titlelogo.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/Login-Form-Clean-1.css">
     <link rel="stylesheet" href="/assets/css/Login-Form-Clean.css">
@@ -16,8 +17,9 @@
     <div class="login-clean">
         <form method="post" style="padding:50px;" action="/signup">
             <h2 class="sr-only">Login Form</h2><img src="assets/img/logo/logo_login.png">
-            <div class="form-group"><input class="form-control" type="text" placeholder="username" name="username" placeholder="Name" style="margin-bottom:16px;">
-            <div class="form-group"><input class="form-control" type="password" placeholder="password" name="password"></div>
+            <div class="form-group"><input class="form-control" type="email" placeholder="Email" name="Email" required></div>
+            <div class="form-group"><input class="form-control" type="text" placeholder="username" name="username" placeholder="Name" style="margin-bottom:16px;" required>
+            <div class="form-group"><input class="form-control" type="password" placeholder="password" name="password" required></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(238,206,125);font-size:20px;">Sign Up</button><a class="btn btn-primary btn-block" role="button" href="/signin" style="background-color:rgb(255,255,255);font-size:16px;margin:1px;color:rgb(25,1,77);">Sign In</a></div>
         </form>
     </div>

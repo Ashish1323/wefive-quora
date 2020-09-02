@@ -2,12 +2,15 @@
 <html>
 <head>
 	<title>WeFive</title>
-	<link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href= "img/titlelogo.png" type="image/x-icon"> 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Dancing+Script:wght@500&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-   <script src="https://cdn.tiny.cloud/1/76e8i3zs3ajub8u8sv40gyfk9wuv3sm09w93b442e794fgvv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://cdn.tiny.cloud/1/vgqocdqqvabj71rwopy0pfg6vp7ldb0ameqmftybdin1k35i/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <script type="text/javascript">
   tinymce.init({
     selector: '.myeditablediv',
@@ -15,108 +18,135 @@
     menubar: false
   });
   </script>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.split {
+  height: 90%;
+ 
+  position: fixed;
+  z-index: 1;
+  
+  overflow-x: hidden;
+  padding-top: 20px;
+  
+  padding-top: 20px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+}
+.split::-webkit-scrollbar {
+    display: none;
+}
+
+.left {
+  left: 0;
+  width :25%;
+  height: 90%;
+  background:white;
+  /*background-image: url('https://images.unsplash.com/photo-1544208757-ddbaebce244e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
+  background-repeat: no-repeat;
+  background-position: center;*/
+}
+.right {
+  right: 0;
+  width:25%;
+  height: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+}
+.middle {
+  left: 25%;
+  right: 25%;
+  width:50%;
+  height: 95%;
+  background:white;
+}
+.centered {
+  margin:10px 0px;
+  position:absolute;
+  top: 50%;
+  vertical-align: middle;
+  left: 50%;
+  align-content: center;
+  transform: translate(-50%, -50%);
+  height: 100%;
+} 
+.askquestion{
+  margin:0px 20px 30px 20px;
+}
+
+
+  </style>
 </head>
 <body>
-  <div style="height: 20%">
-    <nav class="navbar navbar-expand-xl navbar-light" style="background:#f0f3fc">
-    <img class="navbar-brand" src="img/logo_login.png" style="width:100px;">
+    <nav class="navbar navbar-expand-xl navbar-light" style="background:#adb4cc">
+    <div class="container">
+    <img class="navbar-brand" src="img/login_logo_light.png" style="width:90px;padding:0px 0px;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+        <li class="nav-item active ml-2" style="font-family: 'Sora', sans-serif; font-weight: 600;">
           <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
         </li>
-  
-         <form class="form-inline my-2 my-lg-0">
-            <i class="fas fa-search mr-3"></i> <input class="form-control mr-sm-2" style="width:500px;border-radius:80px;" type="search" placeholder="Search to become Genius......" aria-label="Search">
-        </form>
-  <!--       <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-          <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-address-card"></i> About</a>
+        <li class="nav-item active mx-1" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/about"><i class="far fa-address-card"></i> About</a>
         </li>
-        <li class="nav-item active px-3 pr-5" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-          <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-images"></i> Gallery</a>
+        <li class="nav-item active ml-1 mr-2" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/front"><i class="fas fa-list-alt"></i> Specs</a>
         </li>
-    <form class="form-inline">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled style="background:white;">
-      </div>
-    </form> -->
+        <h3><%= noMatch %></h3>
+        <p>
+         <form action="/" method="GET" class="form-inline">
+           <div class="form-group">
+             <i class="fas fa-search"></i><input type="text" name="search" style="border-radius: 50px; margin-left:10px;width:300px;" placeholder="Search..." class="form-control">
+           </div>
+         </form>
+       </p>
       </ul>
         <% if (!currentUser) { %>
-      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-in-alt"></i> <a  style="color:red;background:#f0f3fc; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
+      <button type="button" class="btn btn-light mx-2" style="padding:3px;"><i class="fas fa-sign-in-alt"></i> <a  style="color:red; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
      
-      <button type="button" class="btn btn-light mx-2"><i class="fas fa-user-plus"></i> <a style="color:red; background: #f0f3fc;border:none;text-decoration: none;" href="/signup">SignUp</a></button>
+      <button type="button" class="btn btn-light mx-2" style="padding:3px;"><i class="fas fa-user-plus"></i> <a style="color:red;border:none;text-decoration: none;" href="/signup">SignUp</a></button>
         <% } else { %> 
-     <a class="form-control" href="#" aria-label="Username" aria-describedby="basic-addon1" disabled style="background:#f0f3fc; border:none; align-items: right; text-decoration: none; color: red; text-align: right;">Signed In As <%=currentUser.username %></a>
-      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-out-alt"></i> <a style="color:red; background: #f0f3fc;border:none; text-decoration: none;" href="/logout">Logout</a></button>
+     <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:black; font-family: 'Sora';text-decoration: none;text-transform: capitalize;"><img src="/uploads/<%= currentUser.image %>" style="width:50px;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
+      <button type="button" class="btn btn-light" style="padding:3px;"><i class="fas fa-sign-out-alt"></i> <a style="color:red;border:none; text-decoration: none;" href="/logout">Logout</a></button>
         <% } %>
     </div>
-  </nav>
   </div>
+  </nav>
+
 
 <div class="content">
     <div class="split left">
       <div class="centered">
-      	<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Warning card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Info card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card bg-light mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Light card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Dark card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+      <h1 style="font-family: 'Amaranth', sans-serif, cursive;text-align: center;">Categories</h1>
+      <hr style="margin-bottom: 25px;width:300px;">
+      <a href="/category/GeneralKnowledge" style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">General Knowledge</a><br>
+      <a href="/category/Education"style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">Education</a><br>
+      <a href="/category/Entertainment"style="color:black; text-decoration: none;font-family: 'Pangolin', cursive;font-size: 20px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">Entertainment</a><br>
+      <a href="/category/Webseries&Movies" style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">WebSeries & Movies</a><br>
+      <a href="/category/Sports" style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">Sports</a><br>
+      <a href="/category/HistoryOfIndia" style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">History of India</a><br>
+      <a href="/category/TechnologyTricks" style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">Technology Tricks</a><br>
+      <a href="/category/GlamourWorld" style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">Glamour World</a><br>
+      <a href="/category/MovieReview" style="color:black; text-decoration: none;font-size: 20px;font-family: 'Pangolin', cursive;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRbD7v8auco0NqNC-z7e2PpBceEEs0_WvWymg&usqp=CAU" style="width:40px;">Movie Review</a><br>
       </div>
+    <div class="col-md-12">
+      <% var x  %>
+   
+      <%  %>
+  </div>
+	</div>
 </div>
 
 <div class="split middle">
@@ -128,16 +158,41 @@
    			 <blockquote class="blockquote mb-0">
       				<div class="input-group mb-3">
   						<div class="custom-file">
-<form action="/" method="POST">
-    						<input type="text" style="width:100%; border:none;" placeholder="  Ask what you want to know??" name="ques">
-<BUTTON type="submit" value="post" class="btn btn-success m-2">Submit</BUTTON>
+<form action="/" method="POST" style="width:100%;" >
+      <input type="text" style="width:100%; border:none; text-transform: capitalize;" placeholder="  Ask what you want to know??" name="ques"><br>
+          <BUTTON type="submit" value="post" class="btn btn-success m-2">Submit</BUTTON>
+          <div class="btn-group dropright">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select
+              </button>
+              <div class="dropdown-menu" style="width:200px;">
+                     <input type="radio" id="General Knowledge" value="GeneralKnowledge" name="A" required style="margin-left:10px;">
+                     <label for="General Knowledge">General Knowledge</label><br>
+                     <input type="radio" id="Education" value="Education" name="A" required style="margin-left:10px;">
+                     <label for="Education">Education</label><br>
+                     <input type="radio" id="Entertainment" value="Entertainment" name="A" required style="margin-left:10px;">
+                     <label for="Entertainment">Entertainment</label><br>
+                     <input type="radio" id="WebSeries & Movies" value="Webs  eries&Movies" name="A" required style="margin-left:10px;">
+                     <label for="WebSeries & Movies">WebSeries & Movies</label><br>
+                      <input type="radio" id="Sports" value="Sports" name="A" required style="margin-left:10px;">
+                     <label for="Sports">Sports</label><br>
+                      <input type="radio" id="History of India" value="HistoryOfIndia" name="A" required style="margin-left:10px;">
+                     <label for="History of India">History of India</label><br>
+                      <input type="radio" id="Technology Tricks" value="TechnologyTricks" name="A" required style="margin-left:10px;">
+                     <label for="Technology Tricks">Technology Tricks</label><br>
+                      <input type="radio" id="Glamour World" value="GlamourWorld" name="A" required style="margin-left:10px;">
+                     <label for="Glamour World">Glamour World</label><br>
+                      <input type="radio" id="Movie Review" value="MovieReview" name="A" required style="margin-left:10px;">
+                     <label for="Movie Review">Movie Review</label><br>
+              </div>
+          </div>
 </form>
   						</div>
 					</div>
   <% if (!currentUser) { %>
       			 <footer class="blockquote-footer"><cite title="Source Title"></cite></footer>
 <% } else { %>
-<footer class="blockquote-footer"><cite title="Source Title">By <%=currentUser.username %></cite></footer>
+<footer class="blockquote-footer"><cite title="Source Title" style="text-transform: capitalize;">By <%=currentUser.username %></cite></footer>
 <% } %>
    			 </blockquote>
 
@@ -154,14 +209,14 @@
         	<div class="card-body">
           	<div class="text-left">
           		<h5 class="card-title"><%= campground.question %></h5>
-          		<cite title="Source Title">Question By <%= campground.author.username %></cite>
+          		<cite title="Source Title" style="text-transform: capitalize;">Question By <%= campground.author.username %></cite>
           	</div>
           	
           	<hr>
           	<p class="card-text"  href="">
-               <a href="/question/<%= campground._id %>">Answered BY <%= campground.answer.length%></a> 
+               <a href="/question/<%= campground._id %>" style="text-decoration: none;color: red;">Answered BY <%= campground.answers.length %></a> 
               </p>
-              <button href="#" class="btn btn-primary" id="<%= s %>" onclick="show_hide(this.id)">Write</button>
+              <button href="#" class="btn btn-dark" id="<%= s %>" onclick="show_hide(this.id)">Write</button>
             
          
           
@@ -186,16 +241,16 @@
       </div>
       <% s++ %>
       <% }) %>
+	<div class="copyright mb-5" style="text-align: center;"> 
+       <p></i> Made With <i class="fas fa-heart"></i> By WeFive For You!!</p> 
+    </div>
 </div>
 
 
 
 <div class="split right">
-    <div class="centered">
     
-    </div>  
 </div>
-
 
 <script type="text/javascript">
     var a;

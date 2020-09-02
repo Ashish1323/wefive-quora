@@ -2,12 +2,31 @@
 <html>
   <head>
     <title>WeFive</title>
+    <link rel="icon" href= "img/titlelogo.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-     <script src="https://cdn.tiny.cloud/1/76e8i3zs3ajub8u8sv40gyfk9wuv3sm09w93b442e794fgvv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    
+    <script src="https://cdn.tiny.cloud/1/vgqocdqqvabj71rwopy0pfg6vp7ldb0ameqmftybdin1k35i/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+    
+   
+
+
     <script type="text/javascript">
     tinymce.init({
       selector: '.myeditablediv',
@@ -18,44 +37,44 @@
   </head>
     <body>
       <div style="height: 20%">
-        <nav class="navbar navbar-expand-xl navbar-light" style="background:#f0f3fc">
-        <img class="navbar-brand" src="/img/logo_login.png" style="width:100px;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-              <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
-            </li>
-      
-             <form class="form-inline my-2 my-lg-0">
-                <i class="fas fa-search mr-3"></i> <input class="form-control mr-sm-2" style="width:500px;border-radius:80px;" type="search" placeholder="Search to become Genius......" aria-label="Search">
-            </form>
-      <!--       <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-              <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-address-card"></i> About</a>
-            </li>
-            <li class="nav-item active px-3 pr-5" style="font-family: 'Sora', sans-serif; font-weight: 600;">
-              <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-images"></i> Gallery</a>
-            </li>
-        <form class="form-inline">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled style="background:white;">
-          </div>
-        </form> -->
-          </ul>
-            <% if (!currentUser) { %>
-          <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-in-alt"></i> <a  style="color:red;background:#f0f3fc; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
-         
-          <button type="button" class="btn btn-light mx-2"><i class="fas fa-user-plus"></i> <a style="color:red; background: #f0f3fc;border:none;text-decoration: none;" href="/signup">SignUp</a></button>
-            <% } else { %> 
-         <a class="form-control" href="#" aria-label="Username" aria-describedby="basic-addon1" disabled style="background:#f0f3fc; border:none; align-items: right; text-decoration: none; color: red; text-align: right;">Signed In As <%=currentUser.username %></a>
-          <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-out-alt"></i> <a style="color:red; background: #f0f3fc;border:none; text-decoration: none;" href="/logout">Logout</a></button>
-            <% } %>
-        </div>
-      </nav>
+    <nav class="navbar navbar-expand-xl navbar-light" style="background:#f0fbff">
+    <img class="navbar-brand" src="/img/logo_login.png" style="width:100px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+        </li>
+  
+         <form class="form-inline my-2 my-lg-0">
+            <i class="fas fa-search mr-3"></i> <input class="form-control mr-sm-2" style="width:500px;border-radius:80px;" type="search" placeholder="Search to become Genius ......" aria-label="Search">
+        </form>
+  <!--       <li class="nav-item active px-3" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-address-card"></i> About</a>
+        </li>
+        <li class="nav-item active px-3 pr-5" style="font-family: 'Sora', sans-serif; font-weight: 600;">
+          <a class="nav-link" href="http://fouryears.epizy.com/?i=1"><i class="fas fa-images"></i> Gallery</a>
+        </li>
+    <form class="form-inline">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled style="background:white;">
       </div>
+    </form> -->
+      </ul>
+        <% if (!currentUser) { %>
+      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-in-alt"></i> <a  style="color:red; border:none;text-decoration: none;" href="/signin">LogIn</a></button>
+     
+      <button type="button" class="btn btn-light mx-2"><i class="fas fa-user-plus"></i> <a style="color:red;border:none;text-decoration: none;" href="/signup">SignUp</a></button>
+        <% } else { %> 
+     <a class="form mr-3" href="#" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none; align-items: right; text-decoration: none; color: red; text-align:right;text-transform: capitalize;">Signed In As <%=currentUser.username %></a>
+      <button type="button" class="btn btn-light mx-2"><i class="fas fa-sign-out-alt"></i> <a style="color:red;border:none; text-decoration: none;" href="/logout">Logout</a></button>
+        <% } %>
+    </div>
+  </nav>
+  </div>
 
     	 <div class="container" style="align-items: center;width:70%">
     	 	<div class="card askquestion" style="margin-top:5%;">
@@ -67,11 +86,17 @@
               	<div class="card-body">
                 	<div class="text-left">
                 		<h5 class="card-title"><%= question.question %></h5>
-                		<cite title="Source Title">Question By <%= question.author.username %></cite>
+                    <cite title="Source Title">Question By <%= question.author.username %></cite>
+                  
                   </div>
 
-                  <BR>      
-                	<a href="#" class="btn btn-primary" id="textinput" onclick="show_hide()">Write</a>
+                   <BR>      
+                    <!-- <a href="/edit/:question._id" >Edit</a>  --> 
+                    
+  <form action="/delete/<%= question._id %>?_method=DELETE" method="POST">
+   <button>Delete</button>
+    </form>
+                	<a href="#" class="btn btn-dark" id="textinput" onclick="show_hide()">Write</a>
                     <form action="/<%=question._id%>/answer" method="post" id="textarea" style="display: none">
                       <textarea name="answer">
                       
@@ -89,15 +114,41 @@
                       <BUTTON type="submit" id="answerbutton" class="btn btn-primary"style="display: none; margin-left:15px">Submit</BUTTON>
                     </form>
 
-                	<hr>
-                	  <% question.answer.forEach(function(campground){ %>
-                  <div class="card-text"  href="#">
-                     <a href=""><%= campground.authoranswer %></a> 
+                  <hr>
+                  <% var i=0 %>
+                	  <% question.answers.forEach(function(campground){ %>
                     
-                     <BR>
+                    <% i+=1 %>
+                      <input type="hidden" id="answerId<%= i %>" value="<%= campground._id %>">
+                             
                         <%- campground.answer %> 
+                        <cite title="Source Title">Answer By <%= campground.author.username %></cite>
+                      
+                        <a href="/edit/answer/<%= campground._id %>" >Edit</a>
+
+                      
+                        <button type="button" id="<%= i %>" class="btn btn-default" onclick="dolike(this.id);">
+                          <i class="far fa-thumbs-up" style="margin-left: 10px;"></i> 
+                          <span id="likes<%= i %>">
+                            <%= campground.likes.length %>
+                          </span>
+                        </button>
+                        
+                        <button type="button" id="<%= i %>"class="btn btn-default" onclick="doDislike(this.id);">
+                          <i class="far fa-thumbs-down" style="margin-left: 10px;"></i> 
+                          <span id="Dislikes<%= i %>">
+                            <%= campground.dislikes.length %>
+                          </span>
+                        </button>
+
+                        
+   <form >
+    <input type="submit"></button>
+     </form>
+                      
                      <HR>
    <% }); %>
+   
                   </div>
                 </div>
         </div>
@@ -115,8 +166,61 @@
           document.getElementById("textarea").style.display="inline";
           document.getElementById("answerbutton").style.display="inline";
           return a=0;
-        }
+        } 
       }
+    
+         var s;
+          function dolike(s){
+
+            var ajax = new XMLHttpRequest() ;
+            ajax.open("POST","/do-like",true);
+            ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+            ajax.onreadystatechange = function(){
+              if(this.readyState == 4 && this.status == 200){
+                var response = JSON.parse(this.responseText);
+                if(response.status == "success"){
+                     var likes= document.getElementById("likes"+s).innerHTML;
+                     likes = parseInt(likes);
+                     likes++;
+                     document.getElementById("likes"+s).innerHTML = likes ;
+
+                }else{
+                  alert(response.message);
+                }
+              }
+            }
+
+             var answerId = document.getElementById("answerId"+s).value;
+              ajax.send("answerId=" + answerId);
+          } 
+
+
+    function doDislike(s){
+
+      var ajax = new XMLHttpRequest() ;
+    ajax.open("POST","/do-Dislike",true);
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+   ajax.onreadystatechange = function(){
+   if(this.readyState == 4 && this.status == 200){
+    var response = JSON.parse(this.responseText);
+    if(response.status == "success"){
+         var Dislikes= document.getElementById("Dislikes"+s).innerHTML;
+         Dislikes = parseInt(Dislikes);
+         Dislikes++;
+         document.getElementById("Dislikes"+s).innerHTML = Dislikes ;
+
+    }else{
+      alert(response.message);
+    }
+  }
+}
+
+ var answerId = document.getElementById("answerId"+s).value;
+  ajax.send("answerId=" + answerId);
+}
+
     </script>
 
     </body>
