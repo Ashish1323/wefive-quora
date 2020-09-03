@@ -17,7 +17,10 @@ var UserSchema = new mongoose.Schema({
             ref: "Answer"
          },
     ],
-    image:{ type: String, default: "default.jpg"}
+    image:{ type: String, default: "default.jpg"},
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
+    isAdmin: {type: Boolean, default: false}
 });
 
 

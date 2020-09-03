@@ -315,104 +315,6 @@ app.get("/:id/profile",function(req,res){
     
 })
 
-// app.post('/:id/upload', (req, res) => {
-//   upload(req, res, (err) => {
-//     if(err){
-//       console.log(err)
-//       }
-//      else {
-      
-       
-//  User.findById(req.params.id).populate("userquestions").exec(function(err,question){
-//         if (err) {
-//             console.log(err);
-//     } 
-    
-//         else {
-//             User.findById(req.params.id).populate("useranswers").exec(function(err,answer){
-//                 if (err) {
-//                     console.log(err);
-//                 } 
-//           else {
-           
-//                 if(answer.useranswers.length){
-//             Question.findById(answer.useranswers[0].question.toString(),function(err,foundques){
-//                     if(err){
-//                                 console.log(err);
-//                             }
-//                              else{
-//                                  console.log(req.file.filename)
-//                                  Answer.aggregate([
-
-//                                     {$unwind : "$author" },
-//                                         {$match: {'author.id': {$in:[mongoose.Types.ObjectId(req.params.id)]}} },
-                            
-//                                     // { "$group": {
-//                                     //     "_id": "$_id",
-//                                     //     "annswer": { "$push": "$answer" }
-                              
-//                                     // }},
-                            
-//                                     {$lookup:{ from: "questions", localField:"question", 
-//                                       foreignField:"_id",as:"myCustomResult"}},
-                            
-//                                       {
-//                                         $unwind: "$myCustomResult"
-//                                       }
-//                               ]).exec((err, result)=>{
-//                                     if (err) {
-//                                         console.log("error" ,err)
-//                                     }
-//                                     if (result) {
-//                                         console.log(result);
-//                                         // res.render("profile",{results:result,question:question});
-//                                         res.render("profile",{answer:answer,question:question,ques:foundques,file:`uploads/${req.file.filename}`,results:result});
-//                                     }
-//                               });
-               
-//                         }
-//                         })
-// }
-//                     else{
-//                         Answer.aggregate([
-
-//                             {$unwind : "$author" },
-//                                 {$match: {'author.id': {$in:[mongoose.Types.ObjectId(req.params.id)]}} },
-                    
-//                             // { "$group": {
-//                             //     "_id": "$_id",
-//                             //     "annswer": { "$push": "$answer" }
-                      
-//                             // }},
-                    
-//                             {$lookup:{ from: "questions", localField:"question", 
-//                               foreignField:"_id",as:"myCustomResult"}},
-                    
-//                               {
-//                                 $unwind: "$myCustomResult"
-//                               }
-//                       ]).exec((err, result)=>{
-//                             if (err) {
-//                                 console.log("error" ,err)
-//                             }
-//                             if (result) {
-//                                 console.log(result);
-//                                 // res.render("profile",{results:result,question:question});
-//                                 res.render("profile",{answer:answer,question:question,ques:foundques,file:`uploads/${req.file.filename}`,results:result});
-//                             }
-//                       });
-//                     }
-//                     }    
-//             });
-            
-//     }  
-//     });
-    
-       	
-//       }
-    
-// })
-// })
 app.post('/:id/upload', (req, res) => {
     upload(req, res, (err) => {
       if(err){
@@ -829,15 +731,16 @@ else{
       
       app.get('/reset/:token', function(req, res) {
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-        //   if (!user) {
-        //     req.flash('error', 'Password reset token is invalid or has expired.');
-        //     return res.redirect('/forgot');
-        //   }
+          if (!user) {
+            req.flash('error', 'Password reset token is invalid or has expired.');
+            return res.redirect('/forgot');
+          }
           res.render('reset', {token: req.params.token});
         });
       });
       
       app.post('/reset/:token', function(req, res) {
+          console.log("madarchod",req.params.token)
         async.waterfall([
           function(done) {
             User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
@@ -845,7 +748,7 @@ else{
                 req.flash('error', 'Password reset token is invalid or has expired.');
                 return res.redirect('back');
               }
-              if(req.body.password === req.body.confirm) {
+              if(req.body.password == req.body.confirm) {
                 user.setPassword(req.body.password, function(err) {
                   user.resetPasswordToken = undefined;
                   user.resetPasswordExpires = undefined;
