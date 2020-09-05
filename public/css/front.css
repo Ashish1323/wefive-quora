@@ -1,0 +1,13 @@
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background:#16384c;
+}
+.container{
+	position: relative;
+	width: 1100px;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}
