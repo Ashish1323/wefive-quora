@@ -124,7 +124,7 @@
           <div id="pageanswers">
             <h1 class="mb-3">Answers</h1>
              <% if(results.length){ %>
-                <% results.forEach(function(newquestions){ %>
+                <% results.reverse().forEach(function(newquestions){ %>
           <div class="card mb-3">
             <div class="card-header">
                <h5><%= newquestions.myCustomResult.question %></h5>
@@ -166,7 +166,7 @@
            
              
                 <% if(question.userquestions.length){  %>
-                <% question.userquestions.forEach(function(newquestions){ %>
+                <% question.userquestions.reverse().forEach(function(newquestions){ %>
           <div class="card mb-3">
             <div class="card-header">
               <div class="row">
