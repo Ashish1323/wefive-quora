@@ -842,7 +842,7 @@ else{
 
 
 
-        app.listen(port,function(){
+        app.listen(process.env.PORT,process.env.IP,function(){
             console.log(`Example app listening at http://localhost:${port}`)
         }); 
 
