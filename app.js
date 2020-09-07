@@ -109,7 +109,13 @@ passport.deserializeUser(User.deserializeUser());
     //ROUTES 
 
     // HOME ROUTE
-    app.get("/",function(req,res){
+    app.get("/", function (req,res) {
+        var noMatch
+        res.render("front",{
+            noMatch:noMatch
+        });
+    });
+    app.get("/home",function(req,res){
         var noMatch = null;
         if(req.query.search) {
             const regex = new RegExp(escapeRegex(req.query.search), 'gi');
@@ -156,7 +162,7 @@ passport.deserializeUser(User.deserializeUser());
 }
     });
     // Question Post
-    app.post("/",isloggedin,function(req,res){
+    app.post("/home",isloggedin,function(req,res){
         if(req.body.ques.length>10){
         var author={id:req.user._id,
             username:req.user.username};
@@ -190,7 +196,7 @@ passport.deserializeUser(User.deserializeUser());
     })
 }
 else{
-    res.redirect("/");
+    res.redirect("/home");
 }
       })
 
@@ -235,7 +241,7 @@ var answer={answer:ans,author:author};
    Question.findById(req.params.id, function (err, campground) {
         if (err) {
             console.log(err);
-            res.redirect("/");
+            res.redirect("/home");
         } else {
             Answer.create(answer, function (err, comment) {
                 if (err) {
@@ -267,7 +273,7 @@ var answer={answer:ans,author:author};
 }
 else{
     var error='Must be absvdjsdv'
-    res.redirect("/");
+    res.redirect("/home");
 }
 })
 
@@ -424,7 +430,7 @@ app.post("/signup",function (req,res) {
                   lol()
 
 
-                res.redirect("/");
+                res.redirect("/home");
             })
         
     })
@@ -439,12 +445,7 @@ app.get("/about", function (req,res) {
         noMatch:noMatch
     });
 });
-app.get("/front", function (req,res) {
-    var noMatch
-    res.render("front",{
-        noMatch:noMatch
-    });
-});
+
  app.get("/category",function(req,res){
         var noMatch = null;
         if(req.query.search) {
@@ -509,7 +510,7 @@ app.get("/front", function (req,res) {
     })
         })
 app.post("/signin",passport.authenticate("local",{
-    successRedirect:"/",
+    successRedirect:"/home",
     failureRedirect:"/signin"
 }),
  function (req,res){
@@ -517,7 +518,7 @@ app.post("/signin",passport.authenticate("local",{
  })
 app.get("/logout",function (req,res) {
     req.logout();
-    res.redirect("/");
+    res.redirect("/home");
 });
 
 
@@ -534,9 +535,9 @@ function isloggedin(req,res,next){
     app.post("/question/:id",function(req,res){
         Question.findByIdAndRemove(req.params.id, function(err){
             if (err) {
-                res.redirect("/");
+                res.redirect("/home");
             } else {
-                res.redirect("/");
+                res.redirect("/home");
             }
         });
     })
@@ -578,9 +579,9 @@ function isloggedin(req,res,next){
             });
             Answer.findByIdAndRemove(req.params.id, function(err){
                 if (err) {
-                    res.redirect("/");
+                    res.redirect("/home");
                 } else {
-                    res.redirect("/");
+                    res.redirect("/home");
                 }
             });
            }
@@ -623,14 +624,14 @@ if(err){
     console.log(err);
 }
 else{
-    res.redirect("/");
+    res.redirect("/home");
 }
 
 })
 }
 else{
     var error='Must be absvdjsdv'
-    res.redirect("/");
+    res.redirect("/home");
 }
 })
 
