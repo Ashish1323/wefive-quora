@@ -70,7 +70,13 @@ function checkFileType(file, cb){
 
 
 
-mongoose.connect("mongodb://localhost:27017/Quora",{ useNewUrlParser: true } );
+// mongoose.connect("mongodb://localhost:27017/Quora",{ useNewUrlParser: true } );
+mongoose.connect("mongodb+srv://ashish:mongodjango@blog.fio3w.mongodb.net/Quora?retryWrites=true&w=majority",
+{ useNewUrlParser: true, useCreateIndex:true}).then(()=>{
+    console.log("DB Connected")
+}).catch(err => {
+    console.log(err);
+})
 
 
 app.use(express.static(__dirname + "/public"));
@@ -129,15 +135,7 @@ passport.deserializeUser(User.deserializeUser());
                        if(allCampgrounds.length < 1) {
                          noMatch = "No Questions match that query, please try again.";
                          req.flash("error", "Campground no found");
-                         User.find({username:regex},function(err,founduser){
-                            if(err){
-                                console.log(err);
-                            }
-                            else{
-                                console.log(founduser)
-                                res.render("search",{user:founduser});
-                            }
-                        })
+                        res.redirect("/home");
                          // return res.redirect("back");
                        }
                        else{
