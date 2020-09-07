@@ -1,64 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+body{
+  font-family: 'sora';
 }
-.split {
-  height: 90%;
- 
-  position: fixed;
-  z-index: 1;
-  
-  overflow-x: hidden;
-  padding-top: 20px;
-  
-  padding-top: 20px;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none; 
-}
-.split::-webkit-scrollbar {
-    display: none;
-}
-
-.left {
-  left: 0;
-  width :25%;
-  height: 90%;
-  background:white;
-  /*background-image: url('https://images.unsplash.com/photo-1544208757-ddbaebce244e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
-  background-repeat: no-repeat;
-  background-position: center;*/
-}
-.right {
-  right: 0;
-  width:25%;
-  height: 90%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; 
-}
-.middle {
-  left: 25%;
-  right: 25%;
-  width:50%;
-  height: 95%;
-  background:white;
-}
-.centered {
-  margin:10px 0px;
-  position:absolute;
-  top: 50%;
-  vertical-align: middle;
-  left: 50%;
-  align-content: center;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  height: 100%;
-} 
 .askquestion{
   margin:0px 20px 30px 20px;
 }
+.btn{
+  color: white;
+  font-family: 'Sora', sans-serif; font-weight: 400;
+}
+.nav-item{
+  color: white;
+}
 
+li{
+  font-family: 'Sora', sans-serif; font-weight: 500;
+} 
+.cat_anchor{
+  color: #154854;;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin-left: 10%;
+}

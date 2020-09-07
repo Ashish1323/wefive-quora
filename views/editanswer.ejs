@@ -18,32 +18,7 @@
   });
 	</script>
 
-	<style type="text/css">
-		body{
-			font-family: 'sora';
-		}
-		.askquestion{
-			margin:0px 20px 30px 20px;
-		}
-		.btn{
-			color: white;
-			font-family: 'Sora', sans-serif; font-weight: 400;
-		}
-		.nav-item{
-			color: white;
-		}
-
-		li{
-			font-family: 'Sora', sans-serif; font-weight: 500;
-		}
-		.cat_anchor{
-			color: #154854;;
-			text-decoration: none;
-			font-size: 0.8rem;
-			margin-left: 10%;
-		}
-
-	</style>
+<link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -68,16 +43,22 @@
           <a class="nav-link" href="/front"></i> Specs</a>
         </li>
         <li class="d-lg-none">
-        	<div class="dropdown">
+          <div class="dropdown">
   <button class="btn dropdown-toggle" style=" background: #154854" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Category
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/category/Sports">General Knowledge</a>
-    <a class="dropdown-item" href="/category/Education">Education</a>
-    <a class="dropdown-item" href="/category/Entertainment">Entertainment</a>
+   <a class="dropdown-item" href="/category/GeneralKnowledge" class="cat_anchor">General Knowledge</a><br>
+    <a class="dropdown-item" href="/category/Education" class="cat_anchor">Education</a><br>
+    <a class="dropdown-item" href="/category/Entertainment" class="cat_anchor">Entertainment</a><br>
+    <a class="dropdown-item" href="/category/Webseries&Movies" class="cat_anchor">WebSeries & Movies</a><br>
+    <a class="dropdown-item" href="/category/Sports" class="cat_anchor">Sports</a><br>
+    <a class="dropdown-item" href="/category/HistoryOfIndia" class="cat_anchor">History of India</a><br>
+    <a class="dropdown-item" href="/category/TechnologyTricks" class="cat_anchor">Technology Tricks</a><br>
+    <a class="dropdown-item" href="/category/GlamourWorld" class="cat_anchor">Glamour World</a><br>
+    <a class="dropdown-item" href="/category/MovieReview" class="cat_anchor">Movie Review</a><br>
   </div>
-</div>
+  </div>
         </li>
         
         <p>
@@ -93,12 +74,13 @@
      
       <a class="btn mx-2"  href="/signup">Sign up</a>
         <% } else { %> 
-     <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:white; font-family: 'Sora';text-decoration: none;text-transform: capitalize;"><img src="/img/4.jpg" style="width:40px;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
+     <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:white; font-family: 'Sora';text-decoration: none;text-transform: capitalize;"><img src="/uploads/<%= currentUser.image %>" style="width:2.5rem; height: 2.5rem;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
       <a class="btn" style="color:white;text-decoration: none;" href="/logout">Logout</a></button>
         <% } %>
     </div>
   </div>
   </nav>
+  
 
 <!-- -------------------------NAVBAR END--------------------------- -->
 
