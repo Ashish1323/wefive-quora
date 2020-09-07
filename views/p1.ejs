@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WeFive</title>
+
+  <link rel="icon" href= "img/titlelogo.png" type="image/x-icon"> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+  
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdn.tiny.cloud/1/vgqocdqqvabj71rwopy0pfg6vp7ldb0ameqmftybdin1k35i/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script type="text/javascript">
+  tinymce.init({
+    selector: '.myeditablediv',
+    inline: true,
+    menubar: false
+  });
+	</script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <!-- -------------------------NAVBAR--------------------------- -->
+	<nav class="navbar navbar-expand-xl navbar-dark" id="mainNav" style="background:#154854;">
+        <div class="container">
+        <img class="navbar-brand" src="/img/login_logo_light.png" style="width:90px;padding:0px 0px;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item active  ml-2">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active mx-1">
+              <a class="nav-link" href="/about"></i> About</a>
+            </li>
+            <li class="nav-item active ml-1 mr-2">
+              <a class="nav-link" href="/front"></i> Specs</a>
+            </li>
+            <li class="d-lg-none">
+                <div class="dropdown">
+      <button class="btn dropdown-toggle" style=" background: #154854" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Category
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+       <a class="dropdown-item" href="/category/GeneralKnowledge" class="cat_anchor">General Knowledge</a><br>
+        <a class="dropdown-item" href="/category/Education" class="cat_anchor">Education</a><br>
+        <a class="dropdown-item" href="/category/Entertainment" class="cat_anchor">Entertainment</a><br>
+        <a class="dropdown-item" href="/category/Webseries&Movies" class="cat_anchor">WebSeries & Movies</a><br>
+        <a class="dropdown-item" href="/category/Sports" class="cat_anchor">Sports</a><br>
+        <a class="dropdown-item" href="/category/HistoryOfIndia" class="cat_anchor">History of India</a><br>
+        <a class="dropdown-item" href="/category/TechnologyTricks" class="cat_anchor">Technology Tricks</a><br>
+        <a class="dropdown-item" href="/category/GlamourWorld" class="cat_anchor">Glamour World</a><br>
+        <a class="dropdown-item" href="/category/MovieReview" class="cat_anchor">Movie Review</a><br>
+      </div>
+    </div>
+            </li>
+            
+            <p>
+             <form action="/" method="GET" class="form-inline">
+               <div class="form-group">
+                 <i class="fas fa-search d-none d-md-block" style="color: white;"></i><input type="text" name="search" style="border-radius: 50px; margin-left:10px;width:300px;" placeholder="Search..." class="form-control">
+               </div>
+             </form>
+           </p>
+          </ul>
+            <% if (!currentUser) { %>
+          <a class="btn mx-2" href="/signin">Sign in</a>
+         
+          <a class="btn mx-2"  href="/signup">Sign up</a>
+            <% } else { %> 
+         <a class="form mr-3" href="<%= currentUser._id %>/profile" aria-label="Username" aria-describedby="basic-addon1" disabled style="border:none;color:white; font-family: 'Sora';text-decoration: none;text-transform: capitalize;"><img src="/uploads/<%= currentUser.image %>" style="width:2.5rem;height:2.5rem;border-radius: 50%;margin-right:10px;"> <%=currentUser.username %></a>
+          <a class="btn" style="color:white;text-decoration: none;" href="/logout">Logout</a></button>
+            <% } %>
+        </div>
+      </div>
+      </nav>  
+
+
+
+ 
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-white d-md-none">
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" id="answers" onclick="show_hide(this.id)">Answers</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" id="questions" onclick="show_hide(this.id)">Questions</a>
+            </li>
+        </ul>
+        </div>
+<<<<<<< HEAD
+      </nav>
+
+      <div class="row m-0 p-0 pt-3">
+        <div class="col-md-3 text-center">
+          <img src="/uploads/<%= question.image %>"  id="blah" style="width:10rem; height: 10rem; border-radius:50%;">
+          <form action="/<%= currentUser._id %>/upload" method="POST" enctype="multipart/form-data" class="text-center" id="upload-form">
+            <input name="myImage" onchange="this.form.submit()" id="changeprofile" data-max-size="204" class="d-none profileupdate" type="file" accept="image/png, image/jpeg"/> 
+            
+            <label for="changeprofile" class="border-1" ><i class="fas fa-camera"></i> Change</label>
+=======
+        <div class="card-body p-4">
+         
+          <h5><%- newquestions.answer %> <br>
+
+            <a href="/edit/answer/<%= newquestions._id %>" > Edit </a>
+        <form action="/answer/<%= newquestions._id %>" method="POST" onclick="ConfirmDelete()">
+            <button>Delete</button>
+            </form>
+>>>>>>> 55d1ef195bd06eeaa868532f036fd73bec434309
+          
+
+<<<<<<< HEAD
+            <!-- <input type="submit" value="Upload"/> -->
+=======
+       <div class="split" id="pagequestions" style="width: 75%;height:90%; background:white ; left: 25%; display: none">
+          <div class="centered" style="width:60%;"> 
+          <H1>Questions</H1>
+      
+          <div class="container">
+            <% if(question.userquestions.length){  %>
+            <% question.userquestions.forEach(function(newquestions){ %>
+      <div class="card" style="border-radius: 20px;margin-bottom:10px;">
+        <div class="card-header py-3" style="border-radius: 20px;">
+           <h5><%= newquestions.question %></h5>
+         
+        </div>
+        <div class="card-body p-4">
+         <a href="/question/<%= newquestions._id %>" style="text-decoration: none;color: red;">Answered BY <%= newquestions.answers.length %></a>
+         <form action="/question/<%= newquestions._id %>" method="POST" onclick="ConfirmDelete()">
+          <button>Delete</button>
+>>>>>>> 55d1ef195bd06eeaa868532f036fd73bec434309
+          </form>
+          <div class="btn-group-vertical mt-3 d-none d-md-block" style="width: 100%;">
+            <button type="button" style="color: black;"  id="answers" onclick="show_hide(this.id)" class="btn p-3">Answers</button>
+            <button type="button" class="btn p-3" style="background-color: white;color: black;" id="questions" onclick="show_hide(this.id)">Questions</button>
+            
+            <button type="button" class="btn p-3" style="color: black;">Logout</button>
+          </div>
+
+          
+
+
+          
+        </div>
+        <div class="col-md-9">
+          <div id="pageanswers">
+            <h1 class="mb-3">Answers</h1>
+             <% if(results.length){ %>
+                <% results.forEach(function(newquestions){ %>
+          <div class="card mb-3">
+            <div class="card-header">
+               <h5><%= newquestions.myCustomResult.question %></h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-11">
+                   <%- newquestions.answer %>
+                </div>
+                <div class="col-1">
+                  <div class="row">
+                    <div class="col-6"><a href="/edit/answer/<%= newquestions._id %>" style="color: black;"><i class="fas fa-pen"></i></a></div>
+                    <div class="col-6"> 
+                      <form action="/answer/<%= newquestions._id %>/?_method=DELETE" method="POST" onclick="ConfirmDelete()">
+                      <button id="deletebutton" class="d-none"></i></button>
+                      <label for="deletebutton"><i class="fas fa-trash"></i></label>
+
+                      </form></div>
+                  </div>
+                   </div>
+              </div>
+       </div>
+          </div>
+     
+         <% }) %>
+         <% }else{ %>
+          <div class="card">
+            <div class="card-header">
+               <h5>You Have Not Written Any Answer </h5>
+            </div>
+          </div> 
+          <% } %>
+          </div>
+
+
+          <div id="pagequestions" style="display: none;" >
+            <h1 class="mb-3">Question</h1>
+
+           
+             
+                <% if(question.userquestions.length){  %>
+                <% question.userquestions.forEach(function(newquestions){ %>
+          <div class="card mb-3">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-11"><h5><%= newquestions.question %></h5></div>
+                <div class="col-1"><form action="/question/<%= newquestions._id %>?_method=DELETE" method="POST" onclick="ConfirmDelete()">
+                  <button id="deletebutton" class="d-none"></i></button>
+                      <label for="deletebutton"><i class="fas fa-trash"></i></label>
+                  </form>
+                </div></div>
+              </div>
+               
+             
+           
+            <div class="card-body p-4">
+             <a href="/question/<%= newquestions._id %>" style="text-decoration: none;color: red;">Answered By <%= newquestions.answers.length %></a>
+             
+          </div>
+        </div>
+          <% }) %>
+            <% }else{ %>
+            <div class="card">
+              <div class="card-header">
+                 <h5>You Have Not Written Any Question </h5>
+              </div>
+            </div> 
+            <% } %> 
+          
+    
+
+
+
+          </div>
+          
+        </div>
+        
+      </div>
+      <script type="text/javascript">
+        // var a;
+        var s;
+    function show_hide(s){
+      
+    
+      // if (a==0) {
+      //   document.getElementById("page"+s).style.display="none";
+     
+      //   return a=1;
+      // }
+      // else{
+      //   document.getElementById("page"+s).style.display="inline";
+        
+      //   return a=0;
+      // }
+    
+    
+      var a=document.getElementById("pageanswers");
+      var b=document.getElementById("pagequestions");
+     
+      var y = document.getElementById("page"+s);
+    
+     if(s==="answers"){
+      // if(a.style.display==="none"){
+        a.style.display="inline";
+        b.style.display="none";
+        
+    
+       }
+    
+    if(s==="questions"){
+      // if(a.style.display==="none"){
+        a.style.display="none";
+        b.style.display="inline";
+        
+       }
+    
+      if(s==="setting"){
+      // if(a.style.display==="none"){
+        a.style.display="none";
+        b.style.display="none";
+        
+       }
+    //   else{
+    //       a.style.display="none";
+    //     b.style.display="none";
+    //     c.style.display="none";
+    //   }
+    // }
+    
+    //   if (y.style.display === "none") {
+    //     y.style.display = "inline";
+    
+    //   } else {
+    //     y.style.display = "none";
+    //   }
+    // }
+    
+    }
+
+    
+    function ConfirmDelete()
+{
+  var x = confirm("Are you sure you want to delete?");
+  if (x)
+      return true;
+  else
+    return false;
+}
+  </script>
+    <script>
+      $(function(){
+          var fileInput = $('#changeprofile');
+          var maxSize = fileInput.data('max-size');
+          $('#upload-form').submit(function(e){
+              if(fileInput.get(0).files.length){
+                  var fileSize = fileInput.get(0).files[0].size; // in bytes
+                  if(fileSize>maxSize){
+                      alert('file size is more then' + maxSize + ' bytes');
+                      return false;
+                  }else{
+                      alert('file size is correct- '+fileSize+' bytes');
+                  }
+              }else{
+                  alert('choose file, please');
+                  return false;
+              }
+      
+          });
+      });
+          </script>
+  
+ 
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+</body>
+</html>

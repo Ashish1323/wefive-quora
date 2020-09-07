@@ -387,6 +387,31 @@ app.post("/signup",function (req,res) {
             return res.render("signup");
         }
             passport.authenticate("local")(req,res,function (){
+                
+                function lol (user1,done) {
+                    var smtpTransport = nodemailer.createTransport({
+                      service: 'Gmail', 
+                      auth: {
+                        user: 'wefivehelper@gmail.com',
+                        pass: 'wefive12345'
+                      }
+                    });
+                    var mailOptions = {
+                      to: email,
+                      from: 'wefivehelper@gmail.com',
+                      subject: 'Welcome To We Five!!!!',
+                      text: 'Hello, ' + name +'\n\n' +
+                        "We are glad that you join our Platform. Hope You have a good time!!"
+                    };
+                    smtpTransport.sendMail(mailOptions, function(err) {
+                   
+                      done(err);
+                    });
+                  }
+
+                  lol()
+
+
                 res.redirect("/");
             })
         
