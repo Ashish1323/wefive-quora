@@ -157,6 +157,7 @@ passport.deserializeUser(User.deserializeUser());
     });
     // Question Post
     app.post("/",isloggedin,function(req,res){
+        if(req.body.ques.length>10){
         var author={id:req.user._id,
             username:req.user.username};
             var ques=req.body.ques;
@@ -187,7 +188,11 @@ passport.deserializeUser(User.deserializeUser());
     });
             }
     })
-        })
+}
+else{
+    res.redirect("/");
+}
+      })
 
         // Questions Route GET
         app.get("/question/:id", function(req, res){
@@ -221,7 +226,9 @@ passport.deserializeUser(User.deserializeUser());
         })
 
         app.post("/:id/answer",isloggedin,function(req,res){
+           
             var ans=req.body.answer;
+            if(ans.length>15){
             var author={id:req.user._id,
                 username:req.user.username};
 var answer={answer:ans,author:author};
@@ -257,6 +264,11 @@ var answer={answer:ans,author:author};
             });
         }
     });
+}
+else{
+    var error='Must be absvdjsdv'
+    res.redirect("/");
+}
 })
 
 
@@ -605,6 +617,7 @@ function isloggedin(req,res,next){
 
 app.post("/edit/answer/:id",function(req,res){
 var ans= req.body.answer;
+ if(ans.length>15){
 Answer.findByIdAndUpdate(req.params.id,{answer:ans},function(err,answer){
 if(err){
     console.log(err);
@@ -614,6 +627,11 @@ else{
 }
 
 })
+}
+else{
+    var error='Must be absvdjsdv'
+    res.redirect("/");
+}
 })
 
 
