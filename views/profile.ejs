@@ -144,7 +144,7 @@ $('.profile_image').css({
           <h5><%- newquestions.answer %> <br>
 
             <a href="/edit/answer/<%= newquestions._id %>" > Edit </a>
-        <form action="/answer/<%= newquestions._id %>/?_method=DELETE" method="POST" onclick="ConfirmDelete()">
+        <form action="/answer/<%= newquestions._id %>" method="POST" onclick="ConfirmDelete()">
             <button>Delete</button>
             </form>
           
@@ -183,7 +183,7 @@ $('.profile_image').css({
         </div>
         <div class="card-body p-4">
          <a href="/question/<%= newquestions._id %>" style="text-decoration: none;color: red;">Answered BY <%= newquestions.answers.length %></a>
-         <form action="/question/<%= newquestions._id %>?_method=DELETE" method="POST" onclick="ConfirmDelete()">
+         <form action="/question/<%= newquestions._id %>" method="POST" onclick="ConfirmDelete()">
           <button>Delete</button>
           </form>
         </div>
