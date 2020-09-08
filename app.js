@@ -70,13 +70,13 @@ function checkFileType(file, cb){
 
 
 
-// mongoose.connect("mongodb://localhost:27017/Quora",{ useNewUrlParser: true } );
-mongoose.connect("mongodb+srv://ashish:mongodjango@blog.fio3w.mongodb.net/Quora?retryWrites=true&w=majority",
-{ useNewUrlParser: true, useCreateIndex:true}).then(()=>{
-    console.log("DB Connected")
-}).catch(err => {
-    console.log(err);
-})
+mongoose.connect("mongodb://localhost:27017/Quora",{ useNewUrlParser: true } );
+//mongoose.connect("mongodb+srv://ashish:mongodjango@blog.fio3w.mongodb.net/Quora?retryWrites=true&w=majority",
+//{ useNewUrlParser: true, useCreateIndex:true}).then(()=>{
+//    console.log("DB Connected")
+//}).catch(err => {
+//    console.log(err);
+//})
 
 
 app.use(express.static(__dirname + "/public"));
@@ -842,8 +842,12 @@ else{
 
 
 
-        app.listen(process.env.PORT,process.env.IP,function(){
-            console.log(`Example app listening at http://localhost:${port}`)
-        }); 
+//         app.listen(process.env.PORT,process.env.IP,function(){
+//             console.log(`Example app listening at http://localhost:${port}`)
+//         }); 
+
+    app.listen(port,function(){
+    console.log(`Example app listening at http://localhost:${port}`);
+    })
 
         
